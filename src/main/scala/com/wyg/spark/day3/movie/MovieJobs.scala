@@ -59,9 +59,9 @@ class MovieJobs {
   @Test
   def job1(): Unit = {
     val rating: RDD[(String, Int)] = rddRating.map(x => x.split("::")).map(x => (x(1), 1)).reduceByKey((x, y) => x + y)
-    val top10: Array[(String, Int)] = rating.sortBy(x=>x._2,false).take(10)
+    val top10: Array[(String, Int)] = rating.sortBy(x => x._2, false).take(10)
     val movie: RDD[(String, String)] = rddMovie.map(x => x.split("::")).map(x => (x(0), x(1)))
-    val result: RDD[(String, Int)] = movie.join(sc.makeRDD(top10)).map(x => x._2).sortBy(x=>x._2,false)
+    val result: RDD[(String, Int)] = movie.join(sc.makeRDD(top10)).map(x => x._2).sortBy(x => x._2, false)
     println("===被评分次数最多的10部电影===")
     result.foreach(println)
   }
@@ -255,7 +255,7 @@ class MovieJobs {
         })
         (builder.substring(0, builder.length - 1))
       }).flatMap(y => y.split("\\|")).map(y => y.split("::")).map(y => (y(0), y(1).toDouble)).aggregateByKey((0.0, 0))((a, b) => (a._1 + b, a._2 + 1), (a, b) => (a._1 + b._1, a._2 + b._2
-      )).map(y => (y._1, (y._2._1 / y._2._2))).sortBy(y=>y._2,false)
+      )).map(y => (y._1, (y._2._1 / y._2._2))).sortBy(y => y._2, false)
       result.append(value.map(y => (x._1, y._1, y._2)).first())
     })
     result.foreach(println)
