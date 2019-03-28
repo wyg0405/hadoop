@@ -1,0 +1,20 @@
+math	tom	89	98	34	23	56
+han	tom	78	23	54	52	94	63
+english	tom	45	36	98	52	74
+computer	tom	67	23	89	44	86
+math	lucy	45	25	66	88	44
+han	lucy	78	78	45	62	87
+english	lucy	89	84	66	98	21
+computer	lucy	25	78	41	62	41
+math	sum	56	89	54	75	12
+han	sum	29	12	45	78	32
+english	sum	62	12	21	45	78
+computer	sum	67	45	78	12	98
+math	lily	14	87	52	16	45
+han	lily	67	45	78	12	32
+english	lily	88	12	45	78	12
+computer	lily	96	78	45	12	74
+math	jim	34	45	46	89	12
+han	jim	67	23	89	54	78
+english	jim	48	45	78	12	45
+computer	jim	35	12	45	78	45
