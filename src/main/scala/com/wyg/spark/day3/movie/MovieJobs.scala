@@ -259,5 +259,6 @@ class MovieJobs {
       result.append(value.map(y => (x._1, y._1, y._2)).first())
     })
     result.foreach(println)
+
   }
 }

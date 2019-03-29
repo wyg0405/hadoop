@@ -50,7 +50,7 @@ object Lagou5 {
       * 第二步：获取数据抽象
       */
 //    val linesRDD: RDD[String] = sparkContext.textFile("file:///D:\\bigdata\\lagou\\input\\lagou.txt")
-    val linesRDD: RDD[String] = sparkContext.textFile("hdfs://myha01/lagou/input/")
+    val linesRDD: RDD[String] = sparkContext.textFile("C:\\Users\\wyg04\\Desktop\\lagou\\lagou.txt")
 
     /**
       * 第三步： 处理linesRDD
