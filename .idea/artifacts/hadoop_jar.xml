@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="hadoop:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/hadoop_jar</output-path>
-    <root id="archive" name="hadoop.jar">
-      <element id="module-output" name="hadoop" />
-    </root>
-  </artifact>
-</component>
