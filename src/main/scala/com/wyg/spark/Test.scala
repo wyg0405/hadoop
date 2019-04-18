@@ -20,6 +20,9 @@ object Test {
     val c = "http://bigdata.edu360.cn/laozhang"
     println(c.substring(c.lastIndexOf("/") + 1))
     println(c.substring(c.indexOf("//") + 2, c.indexOf(".")))
+
+    val d = "topic1_group_1"
+    println(d.substring(d.lastIndexOf("_")))
   }
 
   def ip2Long(ip: String): Long = {
