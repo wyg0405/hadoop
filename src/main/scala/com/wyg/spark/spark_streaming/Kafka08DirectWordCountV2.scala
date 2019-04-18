@@ -1,19 +1,16 @@
 package com.wyg.spark.spark_streaming
 
 import kafka.common.TopicAndPartition
-import kafka.message.MessageAndMetadata
-import kafka.serializer.StringDecoder
 import kafka.utils.ZKGroupTopicDirs
 import org.I0Itec.zkclient.ZkClient
 import org.apache.spark.SparkConf
-import org.apache.spark.rdd.RDD
 import org.apache.spark.streaming.dstream.InputDStream
 import org.apache.spark.streaming.{Duration, StreamingContext}
 
 /**
- * Created by zx on 2017/7/31.
+ * kafka 0.8
  */
-object KafkaDirectWordCountV2 {
+object Kafka08DirectWordCountV2 {
 
   def main(args: Array[String]): Unit = {
 
@@ -34,7 +31,7 @@ object KafkaDirectWordCountV2 {
     val topics: Set[String] = Set(topic)
 
     //创建一个 ZKGroupTopicDirs 对象,其实是指定往zk中写入数据的目录，用于保存偏移量
-    val topicDirs = new ZKGroupTopicDirs(group, topic)
+    val topicDirs = new ZKGroupTopicDirs(topic, group)
     //获取 zookeeper 中的路径 "/g001/offsets/wordcount/"
     val zkTopicPath = s"${topicDirs.consumerOffsetDir}"
 
@@ -77,7 +74,7 @@ object KafkaDirectWordCountV2 {
       }
       //Key: kafka的key   values: "hello tom hello jerry"
       //这个会将 kafka 的消息进行 transform，最终 kafak 的数据都会变成 (kafka的key, message) 这样的 tuple
-      val messageHandler = (mmd: MessageAndMetadata[String, String]) => (mmd.key(), mmd.message())
+      /*val messageHandler = (mmd: MessageAndMetadata[String, String]) => (mmd.key(), mmd.message())
 
       //通过KafkaUtils创建直连的DStream（fromOffsets参数的作用是:按照前面计算好了的偏移量继续消费数据）
       //[String, String, StringDecoder, StringDecoder,     (String, String)]
@@ -112,7 +109,7 @@ object KafkaDirectWordCountV2 {
         //将该 partition 的 offset 保存到 zookeeper
         //  /g001/offsets/wordcount/0/20000
         //ZkUtils.updatePersistentPath(zkClient, zkPath, o.untilOffset.toString)
-      }
+      }*/
     }
 
     ssc.start()

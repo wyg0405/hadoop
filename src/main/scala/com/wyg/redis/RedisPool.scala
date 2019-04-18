@@ -33,6 +33,7 @@ object RedisPool {
     conn.incrBy("tom", 10)
     val stu2 = conn.get("tom")
     println(stu2)
+    println(conn.keys("tom*"))
     conn.close()
   }
 }
